@@ -10,10 +10,11 @@ $(function(){
     var table = $(form).find('table');
     var inputField = $(form).find('input');
 
+    //Function to repopulate the list of items.
     function repopulateList(){
-        $('tbody').empty();
+        $(table).find('tbody').empty();
         for (var i in data) {
-            $(table).find('tbody').after('<tr class="dataRow"><td>'+data[i]+'</td><td><button>Delete</button></td></tr>');
+            $(table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><button>Delete</button></td></tr>');
         }
         // console.log(data);
     }
@@ -25,21 +26,17 @@ $(function(){
         repopulateList();
     });
 
-    function addItem(item){
-            $(table).find(' tr:last').before('<tr class="dataRow"><td>'+item+'</td><td><button>Delete</button></td></tr>');
-    }
-
-
     // $(table).find('tr').click( function(e){
     //     console.log(e)
     //     alert('You clicked row '+ ($(this).index()) );
     // });
 
-    $('.dataRow').find(' button').click(function () {
+    $('.dataRow').find('button').click(function () {
         var row = $(this).closest('tr');
         var index = $(row).index() - 1;
-        console.log(data[index]);
-        data.splice(index, 1);
+        //console.log(row.rowIndex);
+        //console.log(data[index]);
+        //data.splice(index, 1);
         repopulateList();
     });
 
