@@ -2,45 +2,44 @@
  * Created by ronnygeo on 3/21/16.
  */
 
-(function(){
-
 $(function(){
-    var data = [];
+    var data = ['data','j','k'];
     var form = $('#myForm');
     var table = $(form).find('table');
-    var inputField = $(form).find('input');
+    var inputField = $(form).find('thead').find('input');
+
 
     //Function to repopulate the list of items.
     function repopulateList(){
         $(table).find('tbody').empty();
         for (var i in data) {
-            $(table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><button>Delete</button></td></tr>');
+            $(table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><a>Delete</a></td></tr>');
         }
-        // console.log(data);
     }
+    repopulateList();
 
     //Getting the input from the input field and adding it to the data array.
-    $('#addToListButton').click(function () {
-        dataInput = inputField.val();
-            data.push(dataInput);
+    $('#addToListButton').bind("click", (function () {
+        var item = inputField.val();
+        data.push(item);
         repopulateList();
-    });
+    }));
 
     // $(table).find('tr').click( function(e){
     //     console.log(e)
     //     alert('You clicked row '+ ($(this).index()) );
     // });
 
-    $('.dataRow').find('button').click(function () {
+    $(table).find('tbody').find('a').click(function () {
         var row = $(this).closest('tr');
+        //console.log($('tbody').index(row))
         var index = $(row).index() - 1;
-        //console.log(row.rowIndex);
+        console.log($(this).closest('tr'));
+        console.log($(this).index());
         //console.log(data[index]);
-        //data.splice(index, 1);
+        data.splice(index, 1);
         repopulateList();
     });
 
 
 });
-
-})();
