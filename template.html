@@ -1,16 +1,17 @@
 <link href="stylesheets/style.css" rel="stylesheet" />
 <form id="myForm" style="margin:auto">
     <table id="formTable" style="border-radius: 5px; border: 1px black solid; box-shadow: 1px 1px 1px black">
-        <thead><tr id="formInputBox" style="border: 1px grey solid">
+        <thead id="formTableHead">
+        <tr id="formInputRow" style="border: 1px grey solid">
             <td>
-                <!--<form>-->
-                    <input type="text" placeholder="Enter ToDo" class="textbox"/></td>
-                    <td><a href="#" id="addToListButton">Add To List</a></td>
-                <!--</form>-->
+                <input id="formInputBox" type="text" placeholder="Enter ToDo" class="textbox"/>
+            </td>
+            <td>
+                <a href="#" id="addToListButton">Add To List</a>
             </td>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="formTableBody">
         </tbody>
         <tfoot>
         <tr>
@@ -21,5 +22,5 @@
         </tfoot>
     </table>
 </form>
-<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+<script src="javascript/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
 <script src="javascript/script.js"></script>
