@@ -5,13 +5,12 @@
 //These are the only variables that needs to be changed in Production Deployment
 variables = {
     formId: 'myForm',
-    deleteButtonClass: 'deleteButton',
     postUrl: '#',
-    //Optional
-    dataRowClass: '',
-    defaultColor: '',
-    addButtonId: 'addToListButton',
     placeholderText: 'Enter note',
+    //Optional
+    dataRowClass: 'dataRow',
+    deleteButtonClass: 'deleteButton',
+    addButtonId: 'addToListButton',
     submitButtonText: 'SUBMIT'
 };
 
@@ -65,7 +64,7 @@ $(function(){
         $tempInput = data[rowId];
     })
         //Function to bind the click event to the Delete link.
-        .delegate('.deleteButton', 'click', function(e){
+        .delegate('.' + variables.deleteButtonClass + '', 'click', function (e) {
         e.preventDefault();
         var rowId = $(this).data("row");
         // console.log(rowId);
@@ -110,7 +109,7 @@ $(function(){
 
     //Adds a row with index i to the table.
     function addRow(i) {
-        $($table).find('tbody').append('<tr class="dataRow newRow"><td>' + data[i] + '</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td></tr>');
+        $($table).find('tbody').append('<tr class="newRow"><td>' + data[i] + '</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td></tr>');
         //Remove the new row highlight after delay.
         delayTime(function () {
             $($table).find('tbody').find('tr:last-child').removeClass('newRow')
@@ -119,7 +118,7 @@ $(function(){
 
     //Updates the row with index i to the table.
     function updateRow(i){
-        $($table).find('tbody').find('tr:eq(' + i + ')').html('<td>' + data[i] + '</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td>')
+        $($table).find('tbody').find('tr:eq(' + i + ')').html('<td>' + data[i] + '</td><td><a href="" class="deleteButton"><img src="images/icons/delete.png" alt="delete item" /></a></td>')
             .addClass('newRow');
         $tempInput = "";
         delayTime(function () {

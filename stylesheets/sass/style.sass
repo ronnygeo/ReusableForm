@@ -1,9 +1,13 @@
 @import mixins
+@import variables
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700)
 
 *
-  font-family: 'Droid Sans', 'Calibri', sans-serif
-  font-size: 1em
+  font-family: $DEFAULT-FONT-STACK
+  font-size: $DEFAULT-FONT-SIZE
+  color: $DEFAULT-FONT-COLOR
+  background-color: $DEFAULT-BG-COLOR
+
 
 @media all
 
@@ -23,8 +27,8 @@
     border-collapse: collapse
 
   thead
-    background-color: #EDFCFF
-    border-bottom: 2px dashed rgba(33, 150, 243, 0.39)
+    background-color: $TABLE-HEAD-BG-COLOR
+    border-bottom: 2px dashed $TABLE-HEAD-BORDER-COLOR
 
     input
       width: 100%
@@ -40,8 +44,8 @@
       -o-transition: all 0.50s ease-in-out
 
     input:hover, input:focus
-      border-color: #21d8ff
-      box-shadow: 0 0 5px #1b8fad
+      border-color: $ADD-BUTTON-BORDER-HOVER
+      box-shadow: 0 0 5px $ADD-BUTTON-SHADOW-HOVER
       border-width: 2px
       +border-radius(3px)
 
@@ -50,11 +54,11 @@
       margin: 1px
       height: 12vh
       padding-right: 5px
-      +filter-hue(88deg)
+      +filter-hue($ADD-BUTTON-HUE)
       transition: all 0.3s ease-in-out
 
     img:hover
-      +filter-hue(40deg)
+      +filter-hue($ADD-BUTTON-HUE-HOVER)
 
     td:first-child
       padding-left: 5px
@@ -63,11 +67,10 @@
     td:last-child
       margin: auto
       text-align: right
-  //width: 25vw
 
   tbody
     tr
-      border: 1px solid #E4E4E4
+      border: 1px solid $TABLE-BODY-BORDER-COLOR
       transition: all 0.3s ease-in-out
 
       td:first-child
@@ -82,8 +85,8 @@
       width: 80%
       height: 10vh
       margin-top: 1vh
-      background-color: rgb(0, 203, 211)
-      color: white
+      background-color: $SUBMIT-BUTTON-BG-COLOR
+      color: $SUBMIT-BUTTON-COLOR
       outline: none
       margin-bottom: 0.5vh
       margin-left: 9vw
@@ -96,15 +99,15 @@
       transition: all 0.5s ease-in-out
 
     button:hover
-      color: rgb(0, 203, 211)
-      background-color: rgba(229, 245, 247, 0.42)
-      text-shadow: 0 2px 3px rgba(165, 165, 165, 0.1)
+      color: $SUBMIT-BUTTON-COLOR-HOVER
+      background-color: $SUBMIT-BUTTON-BG-COLOR-HOVER
+      text-shadow: 0 2px 3px $SUBMIT-BUTTON-SHADOW-COLOR-HOVER
 
   .rowHover
-    border: 1px solid rgba(61, 190, 228, 0.32)
-    color: #6B6B6B
-    background-color: rgba(126, 217, 220, 0.48)
+    border: 1px solid $ROW-HOVER-BORDER-COLOR
+    color: $ROW-HOVER-COLOR
+    background-color: $ROW-HOVER-BG-COLOR
 
   .newRow
-    color: #585858
-    background-color: rgba(22, 255, 0, 0.12)
+    color: $NEW-ROW-COLOR
+    background-color: $NEW-ROW-BG-COLOR
