@@ -5,7 +5,7 @@
 * root
 * .. images
 *  .. .. icons
-* .. javascript
+* .. javascripts
 * .. .. script.js
 * .. stylesheets
 * .. .. sass
@@ -46,6 +46,7 @@
 
 ### CSS Customization
 
+* Change the form id in style.css:11 or style.sass:17.
 * CSS Modifications can be achieved by modifying the _constants.sass using a Sass precompiler.
 * It is possible to change the font-stack, color schemes and other CSS properties by following the above steps.
 
