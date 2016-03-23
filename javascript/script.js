@@ -5,25 +5,39 @@
 //These are the only variables that needs to be changed in Production Deployment
 variables = {
     formId: 'myForm',
-    tbodyId: 'formTableBody',
-    addButtonId: 'addToListButton',
     deleteButtonClass: 'deleteButton',
-    inputFieldId: '',
+    postUrl: '#',
     //Optional
     dataRowClass: '',
-    defaultColor: ''
+    defaultColor: '',
+    addButtonId: 'addToListButton',
+    placeholderText: 'Enter note',
+    submitButtonText: 'SUBMIT'
 };
 
 $(function(){
-    var data = ['123','sdsd dsfs','dsdfdsfsd sdfsdfsdfsd', '234324234'];
+    var data = [];
     var $form = $('#'+variables.formId+'');
     var $table = $($form).find('table');
-    var $tbody = $('#'+variables.tbodyId+'');
+    var $tbody = $($table).find('tbody');
     var $addButton = $('#'+variables.addButtonId+'');
     var $inputField = $($form).find('thead').find('input');
+    var $submitButton = $($form).find('#formSubmitButton');
     var $tempInput = "";
 
     /*** DOM Manipulation ***/
+
+    //Assigning the placeholder text and assigning behavior for Enter key.
+    $($inputField).prop('placeholder', variables.placeholderText)
+        .keypress(function (e) {
+            if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                $($addButton).click();
+                return false;
+            } else {
+                return true;
+            }
+        });
+
     //Getting the input from the input field and adding it to the data array.
     $($addButton).on("click", (function (e) {
         e.preventDefault();
@@ -60,9 +74,11 @@ $(function(){
         // console.log(data);
         $($tbody).find('tr').eq(rowId).remove();
     })
+        //When mouse hovers over a row, highlight the row.
         .delegate('tr', 'mouseover', function(){
             $(this).addClass('rowHover');
         })
+        //When the mouse moves out of a row, removing highlight.
         .on('mouseout', function(){
             $(this).find('tr').removeClass('rowHover');
         })
@@ -71,6 +87,16 @@ $(function(){
             updateRowData();
         });
 
+    //Handling form submission.
+    //This code needs to be changed depending on the type of POST used.
+    $($submitButton).text(variables.submitButtonText)
+        .on('click', function (e) {
+            // alert(data);
+            $.post(variables.postUrl, {'data[]': data});
+            e.preventDefault();
+        });
+
+
     /*** Helper Functions ***/
     //Function to repopulate the list of items.
     function populateList(){
@@ -78,17 +104,32 @@ $(function(){
         for (var i in data) {
             addRow(i);
         }
+        $($table).find('tbody').find('tr').removeClass('newRow');
         updateRowData();
     }
 
     //Adds a row with index i to the table.
-    function addRow(i){
-        $($table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td></tr>');
+    function addRow(i) {
+        $($table).find('tbody').append('<tr class="dataRow newRow"><td>' + data[i] + '</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td></tr>');
+        //Remove the new row highlight after delay.
+        delayTime(function () {
+            $($table).find('tbody').find('tr:last-child').removeClass('newRow')
+        }, 400);
     }
 
     //Updates the row with index i to the table.
     function updateRow(i){
-        $($table).find('tbody').find('tr:eq('+i+')').html('<td>'+data[i]+'</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td>');
+        $($table).find('tbody').find('tr:eq(' + i + ')').html('<td>' + data[i] + '</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td>')
+            .addClass('newRow');
+        $tempInput = "";
+        delayTime(function () {
+            $($table).find('tbody').find('tr').eq(i).removeClass('newRow')
+        }, 400);
+    }
+
+    //This functions adds a delay before calling a function.
+    function delayTime(func, time) {
+        setTimeout(func, time);
     }
 
     //This function updates the data: row with the updated row value.
