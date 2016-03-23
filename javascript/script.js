@@ -7,10 +7,9 @@ variables = {
     formId: 'myForm',
     postUrl: '#',
     placeholderText: 'Enter note',
-    //Optional
-    dataRowClass: 'dataRow',
-    deleteButtonClass: 'deleteButton',
     addButtonId: 'addToListButton',
+    //Optional
+    deleteButtonClass: 'deleteButton',
     submitButtonText: 'SUBMIT'
 };
 
@@ -90,7 +89,6 @@ $(function(){
     //This code needs to be changed depending on the type of POST used.
     $($submitButton).text(variables.submitButtonText)
         .on('click', function (e) {
-            // alert(data);
             $.post(variables.postUrl, {'data[]': data});
             e.preventDefault();
         });
