@@ -2,11 +2,14 @@
 * {
   font-family: "Droid Sans", "Calibri", sans-serif;
   font-size: 1em;
-  color: black;
-  background-color: white;
 }
 
 @media all {
+  body {
+    color: black;
+    background-color: white;
+  }
+
   form {
     margin: auto;
     margin-top: 2vh;
@@ -50,6 +53,27 @@
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
+    color: #00BCD4;
+  }
+
+  thead input[type=text]::-webkit-input-placeholder {
+    color: #00BCD4;
+  }
+
+  thead input[type=text]:-moz-placeholder {
+    color: #00BCD4;
+  }
+
+  thead input[type=text]::-moz-placeholder {
+    color: #00BCD4;
+  }
+
+  thead input[type=text]:-ms-input-placeholder {
+    color: #00BCD4;
+  }
+
+  thead input[type=text]:placeholder-shown {
+    color: #00BCD4;
   }
 
   thead input:hover, thead input:focus {

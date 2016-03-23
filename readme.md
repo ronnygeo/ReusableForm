@@ -41,7 +41,7 @@
     * **placeholderText**: Change this to update the placeholder text inside the text box.
     * **addButtonId**: Update this value if the add to List button ID is updated.
     * **submitButtonText**: Update this value to reflect the text on the submit button.
-    * **post URL**: The URL to which to send the post to.
+    * **post URL**: The URL to which to send the post to. In the current code the stored values are send as an Array to this URL.
 * Depending on how the submit (POST) is handled, the $.post function on *script.js:92* needs to be modified.
 
 ### CSS Customization

@@ -5,11 +5,13 @@
 *
   font-family: $DEFAULT-FONT-STACK
   font-size: $DEFAULT-FONT-SIZE
-  color: $DEFAULT-FONT-COLOR
-  background-color: $DEFAULT-BG-COLOR
 
 
 @media all
+
+  body
+    color: $DEFAULT-FONT-COLOR
+    background-color: $DEFAULT-BG-COLOR
 
   form
     margin: auto
@@ -42,6 +44,9 @@
       -webkit-transition: all 0.50s ease-in-out
       -moz-transition: all 0.50s ease-in-out
       -o-transition: all 0.50s ease-in-out
+      color: #00BCD4
+
+    +placeholder-color(#00BCD4)
 
     input:hover, input:focus
       border-color: $ADD-BUTTON-BORDER-HOVER

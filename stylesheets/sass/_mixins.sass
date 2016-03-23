@@ -31,3 +31,14 @@
   -moz-filter: hue-rotate($deg)
   -o-filter: hue-rotate($deg)
 
+=placeholder-color($color)
+  input[type=text]::-webkit-input-placeholder
+    color: $color
+  input[type=text]:-moz-placeholder
+    color: $color
+  input[type=text]::-moz-placeholder
+    color: $color
+  input[type=text]:-ms-input-placeholder
+    color: $color
+  input[type=text]:placeholder-shown
+    color: $color
