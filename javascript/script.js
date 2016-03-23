@@ -43,7 +43,7 @@ $(function(){
         e.preventDefault();
         var item = $inputField.val();
         if ($tempInput == "") {
-            if (item !== ""){
+            if (item !== "" && !item.match(/^[\s]+/)) {
             data.push(item);
             updateRowData();
             addRow(data.indexOf(item));
