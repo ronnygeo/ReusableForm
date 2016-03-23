@@ -1,23 +1,29 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link href="stylesheets/style.css" rel="stylesheet" />
-<form id="myForm" style="margin:auto">
-    <table id="formTable" style="border-radius: 5px; border: 1px black solid; box-shadow: 1px 1px 1px black">
-        <thead id="formTableHead">
-        <tr id="formInputRow" style="border: 1px grey solid">
+
+<!--If this form id is changed, it should be updated in the script.js, default values.-->
+<form id="myForm">
+    <table>
+        <thead>
+        <tr>
             <td>
-                <input id="formInputBox" type="text" placeholder="Enter ToDo" class="textbox"/>
+                <!--If this input box Id is changed, it should be updated in the script.js, default values.-->
+                <input id="formInputBox" type="text" placeholder="Enter ToDo Note" autofocus />
             </td>
             <td>
-                <a href="#" id="addToListButton">Add To List</a>
+                <!--If this link id is changed, it should be updated in the script.js, default values.-->
+                <a href="" id="addToListButton"><img src="images/icons/tick_green.png" alt="add to List" /></a>
             </td>
         </tr>
         </thead>
+        <!--If this tbody id is changed, it should be updated in the script.js, default values.-->
         <tbody id="formTableBody">
         </tbody>
         <tfoot>
         <tr>
-            <td>
-                <button type="submit" id="formSubmitButton" style="width:100%">Submit</button>
+            <td colspan="2">
+                <!--If this button id is changed, it should be updated in the script.js, default values.-->
+                <button type="submit" id="formSubmitButton">Submit</button>
             </td>
         </tr>
         </tfoot>

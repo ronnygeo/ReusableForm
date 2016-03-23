@@ -10,7 +10,8 @@ variables = {
     deleteButtonClass: 'deleteButton',
     inputFieldId: '',
     //Optional
-    dataRowClass: ''
+    dataRowClass: '',
+    defaultColor: ''
 };
 
 $(function(){
@@ -28,14 +29,14 @@ $(function(){
         e.preventDefault();
         var item = $inputField.val();
         if ($tempInput == "") {
+            if (item !== ""){
             data.push(item);
             updateRowData();
             addRow(data.indexOf(item));
-        }
+            }}
         else {
             var i = data.indexOf($tempInput);
             data[i] = item;
-            console.log(data);
             updateRow(i);
         }
         $($inputField).val("");
@@ -53,12 +54,18 @@ $(function(){
         .delegate('.deleteButton', 'click', function(e){
         e.preventDefault();
         var rowId = $(this).data("row");
-        console.log(rowId);
+        // console.log(rowId);
         data.splice(rowId, 1);
         updateRowData();
-        console.log(data);
+        // console.log(data);
         $($tbody).find('tr').eq(rowId).remove();
     })
+        .delegate('tr', 'mouseover', function(){
+            $(this).addClass('rowHover');
+        })
+        .on('mouseout', function(){
+            $(this).find('tr').removeClass('rowHover');
+        })
         //This code is to fix the bug: Sometimes clicking on delete does not update the DOM with the new data value.
         .on('mouseup', function(){
             updateRowData();
@@ -76,12 +83,12 @@ $(function(){
 
     //Adds a row with index i to the table.
     function addRow(i){
-        $($table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><a class="deleteButton" >Delete</a></td></tr>');
+        $($table).find('tbody').append('<tr class="dataRow"><td>'+data[i]+'</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td></tr>');
     }
 
     //Updates the row with index i to the table.
     function updateRow(i){
-        $($table).find('tbody').find('tr:eq('+i+')').html('<td>'+data[i]+'</td><td><a class="deleteButton" >Delete</a></td>');
+        $($table).find('tbody').find('tr:eq('+i+')').html('<td>'+data[i]+'</td><td><a href="" class="deleteButton" ><img src="images/icons/delete.png" alt="delete item" /></a></td>');
     }
 
     //This function updates the data: row with the updated row value.
