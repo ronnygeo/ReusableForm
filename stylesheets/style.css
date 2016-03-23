@@ -1,0 +1,16 @@
+* {
+  font-family: "Calibri", "Helvetica Neue", sans-serif;
+  font-size: 1em; }
+
+form {
+  margin: auto;
+  border-radius: 2px;
+  border: 1px black solid;
+  box-shadow: 1px 1px 10px black; }
+
+table {
+  width: 100%;
+  line-height: 2em;
+  padding: 2px; }
+
+/*# sourceMappingURL=style.css.map */
