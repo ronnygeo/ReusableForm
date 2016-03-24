@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Reusable Form Template by ronnygeo</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Reusable Form Template</h1>
+        <p class="header">A Resuable Form component that can be easily plugged into any Application.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/ronnygeo/ReusableForm/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/ronnygeo/ReusableForm/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/ronnygeo/ReusableForm">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/ronnygeo">ronnygeo</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="reusable-form-template" class="anchor" href="#reusable-form-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reusable Form Template</h1>
+
+<h2>
+<a id="folder-structure" class="anchor" href="#folder-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Folder Structure</h2>
+
+<ul>
+<li>root</li>
+<li>.. images</li>
+<li> .. .. icons</li>
+<li>.. javascripts</li>
+<li>.. .. script.js</li>
+<li>.. stylesheets</li>
+<li>.. .. sass</li>
+<li>.. .. .. _constants.sass</li>
+<li>.. .. .. style.sass</li>
+<li>.. .. style.css</li>
+<li>template.html</li>
+<li>readme.md</li>
+</ul>
+
+<h2>
+<a id="design-strategies" class="anchor" href="#design-strategies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Strategies</h2>
+
+<ul>
+<li>I have used minimal IDs and classes, so that it wont interfere with already existing ones in the Application.</li>
+<li>Extensively used jQuery and CSS selectors to access child elements.</li>
+<li>All CSS properties nested under the main form id, so that the main namespace wont be polluted.</li>
+<li>Did not use an ID or class unless required. Provide an easy way to update them in the JS file.</li>
+<li>Using Sass precompiler, to reuse CSS properties and components.</li>
+<li>Minimal DOM Manipulations.</li>
+</ul>
+
+<h2>
+<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation</h2>
+
+<ul>
+<li>Implementing this form module is as easy as <strong>copying</strong> the files and adding the HTML code from <em>template.html</em> to your application.</li>
+<li>If you are using Angular.js, the <strong>template.html</strong> file can be used as the templateUrl for your directive.</li>
+<li>There is no need to change any values if you are implementing the form on different pages, but if you have a requirement for multiple forms on same page, follow the next steps below.</li>
+</ul>
+
+<h2>
+<a id="next-steps" class="anchor" href="#next-steps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Next Steps</h2>
+
+<ul>
+<li>Modify the id and classes of the form in HTML code as per requirement.</li>
+</ul>
+
+<h3>
+<a id="js-customizations" class="anchor" href="#js-customizations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JS Customizations</h3>
+
+<ul>
+<li>Update the modified values in <em>javascript/script.js</em>.</li>
+<li>Change the variables object as per requirement. The variables object has the following keys:
+
+<ul>
+<li>
+<strong>formId</strong>: Update the formId from the template as per usage.</li>
+<li>
+<strong>deleteButtonClass</strong>: Update the class if changed.</li>
+<li>
+<strong>placeholderText</strong>: Change this to update the placeholder text inside the text box.</li>
+<li>
+<strong>addButtonId</strong>: Update this value if the add to List button ID is updated.</li>
+<li>
+<strong>submitButtonText</strong>: Update this value to reflect the text on the submit button.</li>
+<li>
+<strong>post URL</strong>: The URL to which to send the post to. In the current code the stored values are send as an Array to this URL.</li>
+</ul>
+</li>
+<li>Depending on how the submit (POST) is handled, the $.post function on <em>script.js:92</em> needs to be modified.</li>
+</ul>
+
+<h3>
+<a id="css-customization" class="anchor" href="#css-customization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS Customization</h3>
+
+<ul>
+<li>Change the form id in style.sass:17 or replace #myForm in style.css.</li>
+<li>CSS Modifications can be achieved by modifying the _constants.sass using a Sass precompiler.</li>
+<li>It is possible to change the font-stack, color schemes and other CSS properties by following the above steps.</li>
+</ul>
+
+<h3>
+<a id="advanced-customizations" class="anchor" href="#advanced-customizations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced Customizations</h3>
+
+<ul>
+<li>
+<em>script.js</em>: This file is very well commented, to make it easy for future updates and more features.</li>
+<li>
+<em>style.sass</em>: File can be easily modified to update certain styling aspects.</li>
+<li>
+<em>style.css</em>: CSS file can be modified if Sass cannot be used.</li>
+<li>
+<em>_constants.sass</em>: This file can be used to store all the constants, so that future modifications can be easily performed.</li>
+<li>
+<em>_mixins.sass</em>: Used to store various mixins to support style.sass.</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
