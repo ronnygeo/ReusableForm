@@ -31,87 +31,87 @@
       +border-radius(2px)
       border-collapse: collapse
 
-    thead
-      background-color: $TABLE-HEAD-BG-COLOR
-      border-bottom: 2px dashed $TABLE-HEAD-BORDER-COLOR
-      height: 1em
+      thead
+        background-color: $TABLE-HEAD-BG-COLOR
+        border-bottom: 2px dashed $TABLE-HEAD-BORDER-COLOR
 
-      input
-        width: 100%
-        height: 100%
-        padding-left: 10px
-        font-size: 1.2em
-        font-style: italic
-        +border-radius(3px)
-        outline: none
-        transition: all 0.5s ease-in-out
-        -webkit-transition: all 0.50s ease-in-out
-        -moz-transition: all 0.50s ease-in-out
-        -o-transition: all 0.50s ease-in-out
-        color: #00BCD4
+        input
+          width: 100%
+          height: 100%
+          padding-left: 10px
+          font-size: 1.2em
+          font-style: italic
+          +border-radius(3px)
+          outline: none
+          transition: all 0.5s ease-in-out
+          -webkit-transition: all 0.50s ease-in-out
+          -moz-transition: all 0.50s ease-in-out
+          -o-transition: all 0.50s ease-in-out
+          color: #00BCD4
 
-      +placeholder-color(#00BCD4)
+        +placeholder-color(#00BCD4)
 
-      input:hover, input:focus
-        border-color: $ADD-BUTTON-BORDER-HOVER
-        box-shadow: 0 0 5px $ADD-BUTTON-SHADOW-HOVER
-        border-width: 2px
-        +border-radius(3px)
+        input:hover, input:focus
+          border-color: $ADD-BUTTON-BORDER-HOVER
+          box-shadow: 0 0 5px $ADD-BUTTON-SHADOW-HOVER
+          border-width: 2px
+          +border-radius(3px)
 
-      img
-        outline: none
-        margin: 1px
-        height: 60%
-        padding-right: 5px
-        +filter-hue($ADD-BUTTON-HUE)
-        transition: all 0.3s ease-in-out
+        img
+          outline: none
+          margin: 1px
+          //height: 60%
+          width: 20%
+          padding-right: 5px
+          +filter-hue($ADD-BUTTON-HUE)
+          transition: all 0.3s ease-in-out
 
-      img:hover
-        +filter-hue($ADD-BUTTON-HUE-HOVER)
-
-      td:first-child
-        padding-left: 5px
-        padding-top: 1px
-
-      td:last-child
-        margin: auto
-        text-align: right
-
-    tbody
-      tr
-        border: 1px solid $TABLE-BODY-BORDER-COLOR
-        transition: all 0.3s ease-in-out
+        img:hover
+          +filter-hue($ADD-BUTTON-HUE-HOVER)
 
         td:first-child
-          padding: 5px
+          padding-left: 5px
+          padding-top: 1px
 
         td:last-child
+          margin: auto
           text-align: right
-          padding-right: 10px
 
-    tfoot
-      button
-        width: 100%
-        height: 3rem
-        margin-top: 1rem
-        background-color: $SUBMIT-BUTTON-BG-COLOR
-        color: $SUBMIT-BUTTON-COLOR
-        outline: none
-        margin-bottom: 0.25rem
-        margin-left: auto
-        margin-right: auto
-        +border-radius(5px)
-        word-spacing: 10px
-        box-shadow: 0 1px 5px #B7B4B4
-        cursor: hand
-        letter-spacing: 0.5rem
-        text-shadow: 1px 2px 4px rgba(245, 245, 245, 0.76)
-        transition: all 0.5s ease-in-out
+      tbody
+        tr
+          border: 1px solid $TABLE-BODY-BORDER-COLOR
+          transition: all 0.3s ease-in-out
 
-      button:hover
-        color: $SUBMIT-BUTTON-COLOR-HOVER
-        background-color: $SUBMIT-BUTTON-BG-COLOR-HOVER
-        text-shadow: 0 2px 3px $SUBMIT-BUTTON-SHADOW-COLOR-HOVER
+          td:first-child
+            padding: 5px
+
+          td:last-child
+            text-align: right
+            padding-right: 10px
+
+      tfoot
+        button
+          width: 100%
+          height: 3rem
+          margin-top: 1rem
+          background-color: $SUBMIT-BUTTON-BG-COLOR
+          color: $SUBMIT-BUTTON-COLOR
+          outline: none
+          margin-bottom: 0.25rem
+          margin-left: auto
+          margin-right: auto
+          +border-radius(5px)
+          word-spacing: 10px
+          box-shadow: 0 1px 5px #B7B4B4
+          cursor: hand
+          letter-spacing: 0.5rem
+          text-shadow: 1px 2px 4px rgba(245, 245, 245, 0.76)
+          transition: all 0.5s ease-in-out
+
+        button:hover
+          color: $SUBMIT-BUTTON-COLOR-HOVER
+          background-color: $SUBMIT-BUTTON-BG-COLOR-HOVER
+          text-shadow: 0 2px 3px $SUBMIT-BUTTON-SHADOW-COLOR-HOVER
 
   .rowHover
     border: 1px solid $ROW-HOVER-BORDER-COLOR
