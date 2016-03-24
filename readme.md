@@ -19,8 +19,10 @@
 
 * I have used minimal IDs and classes, so that it wont interfere with already existing ones in the Application.
 * Extensively used jQuery and CSS selectors to access child elements.
+* All CSS properties nested under the main form id, so that the main namespace wont be polluted.
 * Did not use an ID or class unless required. Provide an easy way to update them in the JS file.
 * Using Sass precompiler, to reuse CSS properties and components.
+* Minimal DOM Manipulations.
 
 ## Implementation
 
@@ -46,7 +48,7 @@
 
 ### CSS Customization
 
-* Change the form id in style.css:11 or style.sass:17.
+* Change the form id in style.sass:17 or replace #myForm in style.css.
 * CSS Modifications can be achieved by modifying the _constants.sass using a Sass precompiler.
 * It is possible to change the font-stack, color schemes and other CSS properties by following the above steps.
 
